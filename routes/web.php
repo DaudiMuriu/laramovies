@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/movie/create', 'MovieController@create')->name('movie.create');
 Route::post('/movie/create', 'MovieController@store')->name('movie.store');
+Route::get('/movies', 'MovieController@index')->name('movies.all');

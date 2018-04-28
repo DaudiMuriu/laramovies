@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Movie;
 
 class MovieController extends Controller
 {
@@ -14,6 +15,8 @@ class MovieController extends Controller
     public function index()
     {
         //
+        $movies = Movie::all();
+        return view('movies.index',['movies'=>$movies]);
     }
 
     /**
@@ -42,6 +45,15 @@ class MovieController extends Controller
             'genre'=>'required',
             'actor'=>'required'
         ]);
+
+        $movie = Movie::create($request->except('_token'));
+
+        if($movie):
+            return redirect()->back()->with('status','Movie added succesfully!');
+        else:
+            return redirect()->back()->with('error','We could not process your request');
+        endif;
+
 
 
     }
