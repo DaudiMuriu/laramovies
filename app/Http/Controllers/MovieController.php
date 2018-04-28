@@ -36,7 +36,14 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        #Validate
+        $this->validate($request,[
+            'title'=>'required',
+            'genre'=>'required',
+            'actor'=>'required'
+        ]);
+
+
     }
 
     /**
