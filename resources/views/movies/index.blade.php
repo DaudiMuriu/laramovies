@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     
-                    <table class="table table-bordered">
+                    <table id="movies_table" class="table table-bordered">
                         <thead>
                             <th>Title</th>
                             <th>Genre</th>
@@ -40,4 +40,12 @@
         </div>
     </div>
 </div>
+@push('scripts')
+    <script>
+        $(document).ready( function () {
+            $('#movies_table').DataTable();
+        } );
+    </script>
+@endpush
+
 @endsection
