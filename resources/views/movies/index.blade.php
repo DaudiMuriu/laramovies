@@ -25,7 +25,7 @@
                                 <td>{{$movie->actor}}</td>
                                 <td>
                                     <span>
-                                        <button class="btn btn-sm btn-success">Edit</button>
+                                        <a href="{{route('movie.edit',['id'=>$movie->id])}}" class="btn btn-sm btn-success">Edit</a>
                                     </span>
                                     <span>
                                         <button class="btn btn-sm btn-danger">Delete</button>

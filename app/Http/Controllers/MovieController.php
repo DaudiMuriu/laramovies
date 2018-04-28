@@ -77,7 +77,9 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
-        //
+        $m = Movie::find($id);
+        return view('movies.edit',['movie'=>$m]);
+        
     }
 
     /**
@@ -90,6 +92,19 @@ class MovieController extends Controller
     public function update(Request $request, $id)
     {
         //
+        #Validate
+        $this->validate($request,[
+            'title'=>'required',
+            'genre'=>'required',
+            'actor'=>'required'
+        ]);
+
+        $movie = Movie::find($id)->update($request->except('_token','_method'));
+         if($movie):
+            return redirect()->back()->with('status','Movie updated succesfully!');
+        else:
+            return redirect()->back()->with('error','We could not process your request');
+        endif;
     }
 
     /**

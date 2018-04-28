@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Add New Movie</div>
+                <div class="card-header">Edit Movie <code> {{ $movie->title }}</code></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -20,8 +20,8 @@
                         </div>
                     @endif
 
-                    {!! Form::open(array('route' => 'movie.store', 'method' => 'POST')) !!}
-                        @include('movies/_movie')
+                    {!! Form::model($movie,array('route' => ['movie.update','id'=>$movie->id], 'method' => 'PUT')) !!}
+                          @include('movies/_movie')
                     {!! Form::close() !!}
 
                 </div>
