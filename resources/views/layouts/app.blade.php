@@ -34,7 +34,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret" class="glyphicon glyphicon-modal-window"></span>Movie Database</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/movie/create') }}">Add Movie</a></li>
+                            <li><a href="{{ url('/movies') }}">Movies</a></li>
+                        </ul>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
